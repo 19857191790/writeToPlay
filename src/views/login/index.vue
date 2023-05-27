@@ -3,10 +3,10 @@
     <star-sky></star-sky>
     <div class="login">
       <div class="left">
-        <img src="../../../public/vite.svg" alt="">
+        <img src="/vite.svg" alt="">
       </div>
       <div class="left"><span class="login-title">System Login</span>
-        <el-form :model="loginForm" :rules="LoginRules" ref="loginFormRef" size="large" label-width="0">
+        <el-form :model="loginForm" :rules="loginRules" ref="loginFormRef" size="large" label-width="0">
           <el-form-item prop="username">
             <el-input v-model="loginForm.username" size="large" placeholder="username">
               <template #prefix>
@@ -22,7 +22,7 @@
             </el-input>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary">登录</el-button>
+            <el-button type="primary" @click="loginSubmit(loginFormRef)">登录</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -35,16 +35,26 @@
   import {reactive} from "vue";
   import type { FormInstance, FormRules } from 'element-plus'
   import { User, Lock } from '@element-plus/icons-vue'
-  const loginForm:any=reactive({
+  const loginForm=reactive({
     username:'',
     password:''
   })
-  const loginRules:any=reactive({
+  const loginRules=reactive({
     username:[{required:true,tigger:"blur",message:'Please Input Your Username'}],
     password:[{required:true,tigger:"blur",message:'Please Input Your Password'}]
   })
   const loginFormRef = ref<FormInstance>()
-
+  const loginSubmit= (formEl: FormInstance | undefined) => {
+    if (!formEl) return
+    formEl.validate((valid) => {
+      if (valid) {
+        console.log('submit!')
+      } else {
+        console.log('error submit!')
+        return false
+      }
+    })
+  }
 </script>
 
 <style lang="scss" scoped>
