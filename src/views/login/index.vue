@@ -73,7 +73,7 @@
       border-radius: 15px;
       .left:first-child{
         img{
-          width: 100%;
+          width: 96%;
         }
       }
       .left{
