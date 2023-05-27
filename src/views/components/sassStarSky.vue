@@ -25,8 +25,8 @@
   $duration:400s;
   $count:800;
   @for $i from 1 through 3{
-    $duration:floor($duration / 2);
-    $count:floor($count / 2);
+    $duration:calc($duration / 2);
+    $count:calc($count / 2);
     .layer#{$i}{
       $size:#{$i}px;
       position: fixed;

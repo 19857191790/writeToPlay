@@ -28,6 +28,11 @@ instance.interceptors.response.use(
             })
             return Promise.reject(new Error(res.message || 'Error'))
         } else {
+            ElMessage({
+                message: res.message || '',
+                type: 'success',
+                duration: 5 * 1000
+            })
             return res.data
         }
     },

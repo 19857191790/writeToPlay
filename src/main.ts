@@ -7,8 +7,11 @@ import App from './App.vue'
 import router from './router'
 // @ts-ignore
 import store from './store'
+import mock from './mock'
 createApp(App)
     .use(ElementPlus)
     .use(router)
     .use(store)
+    // @ts-ignore
+    .use(mock)
     .mount('#app')

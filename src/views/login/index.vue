@@ -3,7 +3,7 @@
     <star-sky></star-sky>
     <div class="login">
       <div class="left">
-        <img src="/vite.svg" alt="">
+        <img src="/vite.svg" alt="图片显示不正确">
       </div>
       <div class="left"><span class="login-title">System Login</span>
         <el-form :model="loginForm" :rules="loginRules" ref="loginFormRef" size="large" label-width="0">
@@ -35,9 +35,12 @@
   import { reactive,ref } from "vue";
   import type { FormInstance, FormRules } from 'element-plus'
   import { User, Lock } from '@element-plus/icons-vue'
+  import { login } from '../../api/api.ts'
+  import router from "../../router";
+
   const loginForm=reactive({
-    username:'',
-    password:''
+    username:'admin',
+    password:'123456'
   })
   const loginRules=reactive<FormRules>({
     username:[{required:true,trigger:"blur",message:'Please Input Your Username'}],
@@ -49,6 +52,10 @@
     formEl.validate((valid:boolean) => {
       if (valid) {
         console.log('submit!')
+        login(loginForm).then(res=>{
+          console.log(res)
+          router.push('/index')
+        })
       } else {
         console.log('error submit!')
         return false
