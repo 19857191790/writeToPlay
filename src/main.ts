@@ -5,7 +5,7 @@ import 'element-plus/dist/index.css'
 import App from './App.vue'
 // @ts-ignore
 import router from './router'
-//@ts-ignore
+// @ts-ignore
 import store from './store'
 createApp(App)
     .use(ElementPlus)

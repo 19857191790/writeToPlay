@@ -1,4 +1,5 @@
 import axios from 'axios'
+// @ts-ignore
 import { ElMessage } from 'element-plus'
 
 const instance = axios.create({

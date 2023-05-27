@@ -32,21 +32,21 @@
 
 <script lang="ts" setup>
   import starSky from '../components/sassStarSky.vue'
-  import {reactive} from "vue";
+  import { reactive,ref } from "vue";
   import type { FormInstance, FormRules } from 'element-plus'
   import { User, Lock } from '@element-plus/icons-vue'
   const loginForm=reactive({
     username:'',
     password:''
   })
-  const loginRules=reactive({
-    username:[{required:true,tigger:"blur",message:'Please Input Your Username'}],
-    password:[{required:true,tigger:"blur",message:'Please Input Your Password'}]
+  const loginRules=reactive<FormRules>({
+    username:[{required:true,trigger:"blur",message:'Please Input Your Username'}],
+    password:[{required:true,trigger:"blur",message:'Please Input Your Password'}]
   })
   const loginFormRef = ref<FormInstance>()
   const loginSubmit= (formEl: FormInstance | undefined) => {
     if (!formEl) return
-    formEl.validate((valid) => {
+    formEl.validate((valid:boolean) => {
       if (valid) {
         console.log('submit!')
       } else {
