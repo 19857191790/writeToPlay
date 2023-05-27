@@ -2,7 +2,9 @@
   <div class="container">
     <star-sky></star-sky>
     <div class="login">
-      <div class="left"></div>
+      <div class="left">
+        <img src="../../../public/vite.svg" alt="">
+      </div>
       <div class="left"><span class="login-title">System Login</span>
         <el-form :model="loginForm" :rules="LoginRules" ref="loginFormRef" size="large" label-width="0">
           <el-form-item prop="username">
@@ -56,11 +58,13 @@
       position: fixed;
       width: 800px;
       height: 400px;
-      background: rgba(0,0,0,.3);
+      background: rgba(255,255,255,.3);
       display: flex;
       border-radius: 15px;
       .left:first-child{
-        background: url("../../assets/login-background.png");
+        img{
+          width: 100%;
+        }
       }
       .left{
         width: 300px;
