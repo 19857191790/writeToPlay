@@ -5,7 +5,10 @@ import starSky from '../components/sassStarSky.vue'
 <template>
   <el-container class="container">
     <star-sky></star-sky>
-    <div class="mainer">
+    <div class="mainer" style="display: flex;align-items: center;justify-content: center;">
+      <span>Welcome to Index!</span>
+    </div>
+    <div class="mainer" v-if="false">
       <el-aside>
         <span style="color: white;font-size: 40px;">Index</span>
       </el-aside>
@@ -28,6 +31,10 @@ import starSky from '../components/sassStarSky.vue'
       left: 0;
       top: 0;
       display: flex;
+      span{
+        font-size: 100px;
+        color: white;
+      }
       .el-aside{
         width: 300px;
         height: 100%;
