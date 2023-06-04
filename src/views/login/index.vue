@@ -54,7 +54,7 @@
         console.log('submit!')
         login(loginForm).then(res=>{
           console.log(res)
-          router.push('/index')
+          router.push('/hello')
         })
       } else {
         console.log('error submit!')
