@@ -15,7 +15,7 @@
             </el-input>
           </el-form-item>
           <el-form-item prop="password">
-            <el-input v-model="loginForm.password" size="large" placeholder="password">
+            <el-input type="password" v-model="loginForm.password" size="large" placeholder="password">
               <template #prefix>
                 <el-icon><Lock /></el-icon>
               </template>

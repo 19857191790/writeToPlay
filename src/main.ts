@@ -8,6 +8,7 @@ import router from './router'
 // @ts-ignore
 import store from './store'
 import mock from './mock'
+
 createApp(App)
     .use(ElementPlus)
     .use(router)
@@ -15,3 +16,10 @@ createApp(App)
     // @ts-ignore
     .use(mock)
     .mount('#app')
+
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+
+const app = createApp(App)
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+    app.component(key, component)
+}
