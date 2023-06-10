@@ -70,7 +70,7 @@
   const currentTime=()=>{
     return formatTime(new Date())
   }
-  let a=null
+  let a:number=0;
   onMounted(()=>{
     a=setInterval(()=>{
       document.getElementsByClassName('currentTime')[0].innerHTML=currentTime()

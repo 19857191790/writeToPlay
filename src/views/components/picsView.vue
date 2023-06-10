@@ -1,21 +1,21 @@
 <script setup lang="ts">
 import {onMounted, ref} from "vue";
 // @ts-ignore
-let num=ref(100);
+const num=ref(100);
 // @ts-ignore
 let picStr='';
-const createPics=(val,type)=>{
+const createPics=(val:number,type:number)=>{
   for(let i=0;i<val;i++){
     picStr+=`
         <div class="box">
             <div class="pic">
-                <img src="https://picsum.photos/200/${100*(i%2?3:2)}?t=${i}">
+                <img src="https://picsum.photos/200/${100*(i%2?3:2)}?t=${i}" alt="">
             </div>
         </div>
       `
   }
-  if(type){
-    let pics = document.getElementsByClassName('pics')[0]
+  if(type===1){
+    const pics = document.getElementsByClassName('pics')[0]
     pics.innerHTML=""
     pics.innerHTML=picStr
     return
@@ -24,8 +24,8 @@ const createPics=(val,type)=>{
 }
 
 onMounted(()=>{
-  let pics = document.getElementsByClassName('pics')[0]
-  pics.innerHTML=createPics(num.value)
+  const pics = document.getElementsByClassName('pics')[0]
+  pics.innerHTML=createPics(num.value,0)
 })
 
 </script>
