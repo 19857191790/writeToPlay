@@ -25,7 +25,7 @@ const createPics=(val:number,type:number)=>{
 
 onMounted(()=>{
   const pics = document.getElementsByClassName('pics')[0]
-  pics.innerHTML=createPics(num.value,0)
+  pics.innerHTML=(createPics(num.value,0)) as string
 })
 
 </script>
