@@ -1,6 +1,9 @@
 <template>
   <div class="container">
     <star-sky></star-sky>
+    <div class="currentTime">
+      {{currentTime()}}
+    </div>
     <div class="login">
       <div class="left">
         <img src="/vite.svg" alt="图片显示不正确">
@@ -32,11 +35,12 @@
 
 <script lang="ts" setup>
   import starSky from '../components/sassStarSky.vue'
-  import { reactive,ref } from "vue";
+  import {onMounted, reactive, ref} from "vue";
   import type { FormInstance, FormRules } from 'element-plus'
   import { User, Lock } from '@element-plus/icons-vue'
   import { login } from '../../api/api.ts'
   import router from "../../router";
+  import { formatTime } from '../../utils/format.ts'
 
   const loginForm=reactive({
     username:'admin',
@@ -54,6 +58,7 @@
         console.log('submit!')
         login(loginForm).then(res=>{
           console.log(res)
+          clearInterval(a)
           router.push('/hello')
         })
       } else {
@@ -62,6 +67,15 @@
       }
     })
   }
+  const currentTime=()=>{
+    return formatTime(new Date())
+  }
+  let a=null
+  onMounted(()=>{
+    a=setInterval(()=>{
+      document.getElementsByClassName('currentTime')[0].innerHTML=currentTime()
+    },1000)
+  })
 </script>
 
 <style lang="scss" scoped>
@@ -71,6 +85,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    .currentTime{
+      position: fixed;
+      left: 1%;
+      top: 1%;
+      font-size: 24px;
+      color: white;
+    }
     .login{
       position: fixed;
       width: 800px;
@@ -96,7 +117,7 @@
           height: 100px;
         }
         .el-form,.el-form-item{
-          width: 96% !important;
+          width: 100% !important;
         }
         .el-button{
           width: 100% !important;

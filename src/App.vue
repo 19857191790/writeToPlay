@@ -7,7 +7,7 @@
 
 <style>
   *{
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
   }
   #app{

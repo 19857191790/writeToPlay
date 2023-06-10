@@ -1,19 +1,22 @@
 <script setup lang="ts">
-import starSky from '../components/sassStarSky.vue'
-import {onMounted} from "vue";
-// @ts-ignore
-import { ElNotification } from 'element-plus'
-import { PictureFilled,ElementPlus } from '@element-plus/icons-vue'
+  import starSky from '../components/sassStarSky.vue'
+  import {onMounted, ref} from "vue";
+  // @ts-ignore
+  import { ElNotification } from 'element-plus'
+  import { PictureFilled,ElementPlus,Iphone } from '@element-plus/icons-vue'
+  import picsView from '../components/picsView.vue'
 
-onMounted(()=>{
-  ElNotification({
-    title: 'Success',
-    message: 'Hello,let\'s take a look at the starry sky together',
-    type: 'success',
-    duration:5000,
-    showClose:false
+
+  onMounted(()=>{
+    ElNotification({
+      title: 'Success',
+      message: 'Hello,let\'s take a look at the starry sky together',
+      type: 'success',
+      duration:5000,
+      showClose:false
+    })
   })
-})
+  const picsViewVisible=ref(false)
 </script>
 
 <template>
@@ -21,14 +24,15 @@ onMounted(()=>{
     <star-sky></star-sky>
     <div class="items">
       <div class="item">
-        <el-tooltip content="Pictrue WebSite is unregistered！" effect="dark" placement="right">
+        <el-tooltip content="PicsView" effect="dark" placement="right">
           <el-button
               class="fixed-buttons"
               color="#626aef"
               dark
               circle
-              size="large">
-            <el-icon size="24px"><PictureFilled /></el-icon>
+              size="large"
+              @click="picsViewVisible=true">
+            <el-icon size="20px"><PictureFilled /></el-icon>
           </el-button>
         </el-tooltip>
       </div>
@@ -61,7 +65,7 @@ onMounted(()=>{
         </el-tooltip>
       </div>
       <div class="item">
-        <el-tooltip content="Github Address" effect="dark" placement="right">
+        <el-tooltip content="Gitee Address" effect="dark" placement="right">
           <el-button
               class="fixed-buttons"
               color="#626aef"
@@ -74,7 +78,68 @@ onMounted(()=>{
           </el-button>
         </el-tooltip>
       </div>
+      <div class="item">
+        <el-tooltip content="+86 19857191790" effect="dark" placement="right">
+          <el-button
+              class="fixed-buttons"
+              color="#626aef"
+              dark
+              circle
+              size="large">
+            <el-icon size="24px"><Iphone /></el-icon>
+          </el-button>
+        </el-tooltip>
+      </div>
+      <div class="item">
+        <el-tooltip content="WeChat 19857191790" effect="dark" placement="right">
+          <el-button
+              class="fixed-buttons"
+              color="#626aef"
+              dark
+              circle
+              size="large">
+            <img src="../../assets/wechat.png" style="width: 24px;height: 24px;">
+          </el-button>
+        </el-tooltip>
+      </div>
+      <div class="item">
+        <el-tooltip content="csdn" effect="dark" placement="right">
+          <el-button
+              class="fixed-buttons"
+              color="#626aef"
+              dark
+              circle
+              size="large">
+            <el-link :underline="false" href="https://blog.csdn.net/weixin_59685936?type=blog" target="_blank">
+              <img src="../../assets/csdn.png" style="width: 24px;height: 24px;">
+            </el-link>
+          </el-button>
+        </el-tooltip>
+      </div>
+      <div class="item">
+        <el-tooltip content="Niuma Programmer" effect="dark" placement="right">
+          <el-button
+              class="fixed-buttons"
+              color="#626aef"
+              dark
+              circle
+              size="large">
+            <el-link :underline="false" href="https://niuma.top/" target="_blank">
+              <img src="../../assets/nm.png" style="width: 24px;height: 24px;">
+            </el-link>
+          </el-button>
+        </el-tooltip>
+      </div>
     </div>
+
+    <el-dialog
+        v-model="picsViewVisible"
+        title="picsViewPage"
+        width="90%"
+    >
+      <picsView></picsView>
+    </el-dialog>
+
   </el-container>
 </template>
 
@@ -90,7 +155,7 @@ onMounted(()=>{
       flex-direction: column;
       .item{
         display: block;
-        margin-bottom: 16%;
+        margin-bottom: 32%;
         .el-link {
           color:white;
         }
