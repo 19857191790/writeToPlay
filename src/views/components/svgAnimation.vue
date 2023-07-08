@@ -1,12 +1,8 @@
-<script setup>
-  onMounted(() => {
-    const paths = window.document.querySelectorAll('.icon .p')
-    console.log(paths)
-    paths.forEach(path => {
-      const len = path.getTotalLength()
-      console.log(path,len)
-      path.style.setProperty('--l',len)
-    })
+<script setup lang="ts">
+  const paths:any = window.document.querySelectorAll('.icon .p')
+  paths.forEach(path => {
+    const len = path.getTotalLength()
+    path.style.setProperty('--l',len)
   })
 </script>
 

@@ -1,4 +1,4 @@
-export const options = {
+export const options:any = {
     background: {
         color: {
             value: '#000'

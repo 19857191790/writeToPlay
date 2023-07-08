@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { options } from "./options.js";
+  import { options } from "./options.ts";
   import { loadFull } from "tsparticles"
   const particlesInit = async (engine) => {
     await loadFull(engine)
