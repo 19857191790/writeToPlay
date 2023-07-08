@@ -73,7 +73,9 @@
   let a:number=0;
   onMounted(()=>{
     a=setInterval(()=>{
-      document.getElementsByClassName('currentTime')[0].innerHTML=currentTime()
+      let chinaTime = currentTime() + "  " + "China"
+      let timeStr = chinaTime
+      document.getElementsByClassName('currentTime')[0].innerHTML= timeStr
     },1000)
   })
 </script>

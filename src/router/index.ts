@@ -5,7 +5,9 @@ const routes = [
     // @ts-ignore
     { path: '/', component: ()=>import('../views/login/index.vue'),meta:{title:'SystemLogin'}},
     // @ts-ignore
-    { path: '/hello', component: ()=>import('../views/hello/index.vue'),meta:{title:'HelloPage'}}
+    { path: '/hello', component: ()=>import('../views/hello/index.vue'),meta:{title:'HelloPage'}},
+    // @ts-ignore
+    { path: '/particles', component: ()=>import('../views/components/ParticlesView/particles.vue'),meta:{title:'particlesView'}}
 ]
 
 const router=createRouter({

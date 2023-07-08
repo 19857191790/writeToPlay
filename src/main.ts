@@ -8,6 +8,7 @@ import router from './router'
 // @ts-ignore
 import store from './store'
 import mock from './mock'
+import Particles from "particles.vue3"
 
 createApp(App)
     .use(ElementPlus)
@@ -15,6 +16,7 @@ createApp(App)
     .use(store)
     // @ts-ignore
     .use(mock)
+    .use(Particles)
     .mount('#app')
 
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
