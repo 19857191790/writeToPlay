@@ -1,11 +1,14 @@
 <script setup lang="ts">
   import { options } from "./options.ts";
   import { loadFull } from "tsparticles"
-  const particlesInit = async (engine) => {
+  // @ts-ignore
+  const particlesInit = async (engine:object) => {
+    // @ts-ignore
     await loadFull(engine)
   }
-
+  // @ts-ignore
   const particlesLoaded = async (container) => {
+    // @ts-ignore
     console.log('Particles container loaded', container)
   }
 </script>

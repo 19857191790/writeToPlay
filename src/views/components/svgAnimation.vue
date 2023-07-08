@@ -1,7 +1,11 @@
 <script setup lang="ts">
-  const paths:any = window.document.querySelectorAll('.icon .p')
+  // @ts-ignore
+  const paths = window.document.querySelectorAll('.icon .p')
+  // @ts-ignore
   paths.forEach(path => {
+    // @ts-ignore
     const len = path.getTotalLength()
+    // @ts-ignore
     path.style.setProperty('--l',len)
   })
 </script>
