@@ -7,7 +7,9 @@ const routes = [
     // @ts-ignore
     { path: '/hello', component: ()=>import('../views/hello/index.vue'),meta:{title:'HelloPage'}},
     // @ts-ignore
-    { path: '/particles', component: ()=>import('../views/components/ParticlesView/particles.vue'),meta:{title:'particlesView'}}
+    { path: '/particles', component: ()=>import('../views/components/ParticlesView/particles.vue'),meta:{title:'particlesView'}},
+    // @ts-ignore
+    { path: '/upload', component: ()=>import('../views/components/uploadView/uploadView.vue'),meta:{title:'uploadView'}}
 ]
 
 const router=createRouter({

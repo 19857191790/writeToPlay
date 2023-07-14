@@ -1,6 +1,6 @@
 // @ts-ignore
 import Mock from 'mockjs'
-
+import getToken from '../utils/uploader.ts'
 // 设置拦截ajax请求的相应时间
 Mock.setup({
     timeout: '200-600'
@@ -20,6 +20,14 @@ Mock.mock('/user/login', 'post', (params: any) => {
             status: 200,
             message: 'Login Success'
         }
+    }
+})
+
+Mock.mock('/getToken', 'post', () => {
+    return {
+        // @ts-ignore
+        data: getToken('h1iZ7ssAbVt35FzE5U8J5aysGtIQqFMWx-c1paMp','PbaelH10u98QMBxlgWa6o2bEsVcYk2u-XoCRi7Yn','19857191790'),
+        status: 200
     }
 })
 

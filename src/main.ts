@@ -10,6 +10,8 @@ import store from './store'
 import mock from './mock'
 import Particles from "particles.vue3"
 
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+
 createApp(App)
     .use(ElementPlus)
     .use(router)
@@ -18,8 +20,6 @@ createApp(App)
     .use(mock)
     .use(Particles)
     .mount('#app')
-
-import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 const app = createApp(App)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
